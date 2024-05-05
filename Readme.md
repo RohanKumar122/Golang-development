@@ -13,6 +13,9 @@ And also at automatically remove semicolons.
  after:
  person := "Rio"
 
+ summary: 
+ var person ="Rio" == person :="Rio"
+
  ## Note:
  If we assign any variable starting with capital letter (Person), It can directly export to another file but cannot eccess outside if assign with small starting letter(Person).
  Same is APPLICABLE FOR FUNCTIONS ALSO.
@@ -35,3 +38,20 @@ func main()
 {
 
 }
+
+### Array and Slices:
+- Array ->static 
+- Slices -> dynamic (It's like vector)
+
+declaration :
+
+Array :
+- var name[5] string
+- var name =[5] int{1,2,3,4,5}
+
+Slices :
+- numbers :=[] int {1,2,3}
+It has length,capacity, Pointer.
+ 
+
+
