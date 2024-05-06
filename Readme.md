@@ -52,6 +52,14 @@ Array :
 Slices :
 - numbers :=[] int {1,2,3}
 It has length,capacity, Pointer.
+
+
+### Map
+
+- unordered
+- Dynamic
+- Key and values
+- Initialization
  
 
 
