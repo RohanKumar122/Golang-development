@@ -61,5 +61,8 @@ It has length,capacity, Pointer.
 - Key and values
 - Initialization
  
+ ### Time
+- In go, The time format is fixed. i.e, 2006-01-02 15:04:05
+- YYYY-MM-DD hh:mm:ss
 
 
