@@ -1,5 +1,6 @@
 # Golang
 - Golang does not contains class, It only hace packages.
+- golang feels us more connectivity with OS.
 
 ## Datatypes
 - There is no need of defining datatypes, The compiler is smart enough to determin the datatype automatically.
