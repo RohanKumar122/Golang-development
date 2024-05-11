@@ -83,12 +83,60 @@ func performPostRequest() {
 	}
 	fmt.Println("Response is: ", string(data))
 	fmt.Println("Response Status: ", res.Status)
+}
+
+func performUpdateRequest() {
+	todo := Todo{
+		UserID:    123,
+		Title:     " Hello World Rohan!!",
+		Completed: false,
+	}
+
+	// convert todo Struct to JSON
+	jsonData, err := json.Marshal(todo)
+	if err != nil {
+		fmt.Println("Json Error", err)
+		return
+	}
+
+	//convert JSON to string
+	JsonString := string(jsonData)
+
+	//convert string data to reader
+	jsonReader :=strings.NewReader(JsonString)
+
+	const myUrl = "https://jsonplaceholder.typicode.com/todos/1"
+
+	//create PUT request
+	req,err := http.NewRequest(http.MethodPut,myUrl,jsonReader)
+	if err!=nil{
+		fmt.Println("Respose Error", err)
+		return 
+	}
+	req.Header.Set("content-type","Application/json")
+    
+	// send the request
+	client := http.Client{}
+	res,err :=client.Do(req)
+	if err!=nil{
+		fmt.Println("client error",err)
+		return 
+	}
+
+	defer res.Body.Close()
+
+	data,_ :=ioutil.ReadAll((res.Body))
+	fmt.Println("Response: ",string(data))
+	fmt.Println("Response Status: ",res.Status)
+
+
 
 }
 
 func main() {
 	fmt.Println("CRUD loading...")
 	// performGetRequest()
-	performPostRequest()
+	// performPostRequest()
+	performUpdateRequest()
 
 }
