@@ -9,10 +9,10 @@ import (
 )
 
 type Todo struct {
-	UserID int    `json:"userId"`
-	Id     int    `json:"id"`
-	Title  string `json:"title"`
-	Completed bool `json:c"om"`
+	UserID    int    `json:"userId"`
+	Id        int    `json:"id"`
+	Title     string `json:"title"`
+	Completed bool   `json:"complete"`
 }
 
 func performGetRequest() {
@@ -46,8 +46,8 @@ func performGetRequest() {
 
 func performPostRequest() {
 	todo := Todo{
-		UserID :  23,
-		Title:    "Rohan Kumar",
+		UserID:    23,
+		Title:     "Rohan Kumar",
 		Completed: true,
 	}
 
@@ -82,7 +82,7 @@ func performPostRequest() {
 		return
 	}
 	fmt.Println("Response is: ", string(data))
-	fmt.Println("Response Status: ",res.Status)
+	fmt.Println("Response Status: ", res.Status)
 
 }
 
