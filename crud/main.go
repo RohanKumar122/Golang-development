@@ -103,40 +103,85 @@ func performUpdateRequest() {
 	JsonString := string(jsonData)
 
 	//convert string data to reader
-	jsonReader :=strings.NewReader(JsonString)
+	jsonReader := strings.NewReader(JsonString)
 
 	const myUrl = "https://jsonplaceholder.typicode.com/todos/1"
 
 	//create PUT request
-	req,err := http.NewRequest(http.MethodPut,myUrl,jsonReader)
-	if err!=nil{
+	req, err := http.NewRequest(http.MethodPut, myUrl, jsonReader)
+	if err != nil {
 		fmt.Println("Respose Error", err)
-		return 
+		return
 	}
-	req.Header.Set("content-type","Application/json")
-    
+	req.Header.Set("content-type", "Application/json")
+
 	// send the request
 	client := http.Client{}
-	res,err :=client.Do(req)
-	if err!=nil{
-		fmt.Println("client error",err)
-		return 
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Println("client error", err)
+		return
 	}
 
 	defer res.Body.Close()
 
-	data,_ :=ioutil.ReadAll((res.Body))
-	fmt.Println("Response: ",string(data))
-	fmt.Println("Response Status: ",res.Status)
-
-
-
+	data, _ := ioutil.ReadAll((res.Body))
+	fmt.Println("Response: ", string(data))
+	fmt.Println("Response Status: ", res.Status)
 }
+
+func performDeleteRequest() {
+	const myUrl = "https://jsonplaceholder.typicode.com/todos/1"
+
+	req, err := http.NewRequest(http.MethodDelete, myUrl, nil)
+	if err != nil {
+		fmt.Println("Error is ", err)
+		return
+	}
+
+	// send the request
+	client := http.Client{}
+	res, err := client.Do(req)
+	if err != nil {
+		fmt.Println("client error", err)
+		return
+	}
+
+	defer res.Body.Close()
+
+	fmt.Println("Response Status: ", res.Status)
+}
+
+
+// func performDeleteRequest() {
+// 	const myUrl = "https://jsonplaceholder.typicode.com/todos/1"
+
+// 	res, err := http.NewRequest(http.MethodDelete, myUrl, nil)
+// 	if err != nil {
+// 		fmt.Println("Error is ", err)
+// 		return
+// 	}
+
+// 	// send the request
+// 	client := http.Client{}
+// 	res, err = client.Do(res)
+
+// 	if err != nil {
+// 		fmt.Println("client error", err)
+// 		return
+// 	}
+
+// 	defer res.Body.Close()
+
+// 	fmt.Println("Response Status: ", res.Status)
+
+// }
 
 func main() {
 	fmt.Println("CRUD loading...")
 	// performGetRequest()
 	// performPostRequest()
-	performUpdateRequest()
+	// performUpdateRequest()
+	performDeleteRequest()
 
 }
