@@ -1,5 +1,5 @@
 # Golang
-- Golang does not contains class, It only hace packages.
+- Golang does not contains class, It only have packages.
 - golang feels us more connectivity with OS.
 
 ## Datatypes
